@@ -20,6 +20,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
+  <!-- Supabase Integration scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+
   <style>
     /* ==========================================================================
        1. VARIABLES & DESIGN SYSTEM (MINIMALIST & COOL CYBER-OBSIDIAN)
@@ -1660,9 +1664,9 @@
       <div class="container hero-content">
         <div class="hero-badge reveal">
           <div class="hero-badge-dot"></div>
-          <span>Available for freelance websites & data science projects</span>
+          <span id="hero-badge-text">Available for freelance websites & data science projects</span>
         </div>
-        <h1 class="hero-title reveal">
+        <h1 class="hero-title reveal" id="hero-name">
           Suraj Kumar Gupta
         </h1>
         <div class="hero-subtitle reveal">
@@ -1687,10 +1691,10 @@
 
         <div class="about-grid">
           <div class="about-bio reveal">
-            <p>
+            <p id="about-bio-text">
               I am a 21-year-old AI & Data Science student at Pokhara University, Nepal . I build high-performance minimalist web platforms and design clean analytics frameworks.
             </p>
-            <div class="about-bio-highlight">
+            <div class="about-bio-highlight" id="about-bio-highlight">
               "Translating complex logic into minimal, structured digital products and high-impact data analytics."
             </div>
 
@@ -1712,26 +1716,26 @@
             
             <div class="stats-list">
               <div class="stat-item">
-                <div class="stat-num">21</div>
+                <div class="stat-num" id="about-stat-age">21</div>
                 <div class="stat-lbl">Years Old</div>
               </div>
               <div class="stat-item">
-                <div class="stat-num">Sem 2</div>
+                <div class="stat-num" id="about-stat-program">Sem 2</div>
                 <div class="stat-lbl">BAIDS Program</div>
               </div>
               <div class="stat-item">
-                <div class="stat-num">3+</div>
+                <div class="stat-num" id="about-stat-works">3+</div>
                 <div class="stat-lbl">Active Works</div>
               </div>
               <div class="stat-item">
-                <div class="stat-num">Active</div>
+                <div class="stat-num" id="about-stat-status">Active</div>
                 <div class="stat-lbl">Freelance Status</div>
               </div>
             </div>
           </div>
 
           <div class="about-timeline reveal">
-            <div class="timeline-container">
+            <div class="timeline-container" id="timeline-container">
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2026 - Present</div>
@@ -1803,7 +1807,7 @@
           <h2 class="section-title">Technical <span>Skills</span></h2>
         </div>
 
-        <div class="skills-grid reveal">
+        <div class="skills-grid reveal" id="skills-container">
           <!-- Skill 1 -->
           <div class="skill-item">
             <div class="skill-info">
@@ -1863,7 +1867,7 @@
         <!-- Necessary Content: Toolkit Sub-section -->
         <div class="reveal">
           <h3 class="toolkit-header">Toolkit & Libraries</h3>
-          <div class="toolkit-grid">
+          <div class="toolkit-grid" id="toolkit-container">
             <span class="toolkit-item">Git & GitHub</span>
             <span class="toolkit-item">MySQL</span>
             <span class="toolkit-item">Jupyter Notebooks</span>
@@ -1888,7 +1892,7 @@
           <h2 class="section-title">Selected <span>Works</span></h2>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-grid" id="projects-container">
           <!-- Project 1 -->
           <article class="project-card reveal" id="proj-eda">
             <div class="project-status active">
@@ -1968,7 +1972,7 @@
           <h2 class="section-title">Professional <span>Services</span></h2>
         </div>
 
-        <div class="services-grid">
+        <div class="services-grid" id="services-container">
           <!-- Card 1 -->
           <article class="service-card reveal" id="serv-1">
             <span class="service-pricing-badge">Affordable Pricing</span>
@@ -2067,21 +2071,21 @@
             </div>
             
             <div class="contact-links">
-              <a href="mailto:iamsuraza@email.com" class="contact-link-row">
+              <a href="mailto:iamsuraza@email.com" class="contact-link-row" id="contact-email-link">
                 <span class="contact-link-lbl">Email</span>
-                <span class="contact-link-val">iamsuraza@email.com</span>
+                <span class="contact-link-val" id="contact-email-val">iamsuraza@email.com</span>
               </a>
-              <a href="https://wa.me/9779703022143" class="contact-link-row" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/9779703022143" class="contact-link-row" target="_blank" rel="noopener noreferrer" id="contact-whatsapp-link">
                 <span class="contact-link-lbl">WhatsApp</span>
-                <span class="contact-link-val">+977 9703022143</span>
+                <span class="contact-link-val" id="contact-whatsapp-val">+977 9703022143</span>
               </a>
-              <a href="https://www.linkedin.com/in/suraj-kumar-gupta-41b68733a/" class="contact-link-row" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/suraj-kumar-gupta-41b68733a/" class="contact-link-row" target="_blank" rel="noopener noreferrer" id="contact-linkedin-link">
                 <span class="contact-link-lbl">LinkedIn</span>
-                <span class="contact-link-val">Suraj Kumar Gupta</span>
+                <span class="contact-link-val" id="contact-linkedin-val">Suraj Kumar Gupta</span>
               </a>
-              <a href="https://github.com/iamsuraza" class="contact-link-row" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/iamsuraza" class="contact-link-row" target="_blank" rel="noopener noreferrer" id="contact-github-link">
                 <span class="contact-link-lbl">GitHub</span>
-                <span class="contact-link-val">iamsuraza</span>
+                <span class="contact-link-val" id="contact-github-val">iamsuraza</span>
               </a>
             </div>
           </div>
@@ -2126,7 +2130,7 @@
   <footer>
     <div class="container footer-container">
       <p class="footer-copyright">
-        &copy; 2026 Suraj Kumar Gupta.
+        &copy; 2026 <span id="footer-name">Suraj Kumar Gupta</span>.
       </p>
       <p class="footer-meta">
         Built in <span>Kathmandu, Nepal</span>.
@@ -2140,9 +2144,260 @@
 
   <script>
     /* ==========================================
+       SUPABASE DATABASE INTEGRATION & DATA HYDRATION
+       ========================================== */
+    function hexToRgb(hex) {
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+
+    async function initSupabase() {
+      if (typeof supabase === 'undefined' || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
+        console.warn("Supabase library not loaded or configuration missing. Running with static fallbacks.");
+        initSkillObserver();
+        initScrollReveal();
+        initTilt();
+        return;
+      }
+
+      try {
+        const supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        
+        // Fetch all tables concurrently
+        const [
+          { data: profile, error: profileErr },
+          { data: skills, error: skillsErr },
+          { data: toolkit, error: toolkitErr },
+          { data: projects, error: projectsErr },
+          { data: services, error: servicesErr },
+          { data: timeline, error: timelineErr },
+          { data: theme, error: themeErr }
+        ] = await Promise.all([
+          supabaseClient.from('profile').select('*').eq('id', 1).maybeSingle(),
+          supabaseClient.from('skills').select('*').order('display_order', { ascending: true }),
+          supabaseClient.from('toolkit').select('*'),
+          supabaseClient.from('projects').select('*').order('display_order', { ascending: true }),
+          supabaseClient.from('services').select('*').order('display_order', { ascending: true }),
+          supabaseClient.from('timeline').select('*').order('display_order', { ascending: true }),
+          supabaseClient.from('theme').select('*').eq('id', 1).maybeSingle()
+        ]);
+
+        if (profileErr) console.error("Error fetching profile:", profileErr);
+        if (skillsErr) console.error("Error fetching skills:", skillsErr);
+        if (toolkitErr) console.error("Error fetching toolkit:", toolkitErr);
+        if (projectsErr) console.error("Error fetching projects:", projectsErr);
+        if (servicesErr) console.error("Error fetching services:", servicesErr);
+        if (timelineErr) console.error("Error fetching timeline:", timelineErr);
+        if (themeErr) console.error("Error fetching theme:", themeErr);
+
+        // 1. Hydrate Profile / Details
+        if (profile) {
+          if (profile.name) {
+            document.getElementById("hero-name").textContent = profile.name;
+            const footerName = document.getElementById("footer-name");
+            if (footerName) footerName.textContent = profile.name;
+          }
+          if (profile.badge_text) {
+            document.getElementById("hero-badge-text").textContent = profile.badge_text;
+          }
+          if (profile.bio) {
+            document.getElementById("about-bio-text").textContent = profile.bio;
+          }
+          if (profile.bio_quote) {
+            document.getElementById("about-bio-highlight").textContent = profile.bio_quote;
+          }
+          if (profile.age) {
+            document.getElementById("about-stat-age").textContent = profile.age;
+          }
+          if (profile.program) {
+            document.getElementById("about-stat-program").textContent = profile.program;
+          }
+          if (profile.active_works) {
+            document.getElementById("about-stat-works").textContent = profile.active_works;
+          }
+          if (profile.freelance_status) {
+            document.getElementById("about-stat-status").textContent = profile.freelance_status;
+          }
+
+          // Contact Links
+          if (profile.email) {
+            const emailLink = document.getElementById("contact-email-link");
+            const emailVal = document.getElementById("contact-email-val");
+            if (emailLink) emailLink.href = `mailto:${profile.email}`;
+            if (emailVal) emailVal.textContent = profile.email;
+          }
+          if (profile.whatsapp_number) {
+            window.whatsappNumber = profile.whatsapp_number;
+            const whatsappLink = document.getElementById("contact-whatsapp-link");
+            const whatsappVal = document.getElementById("contact-whatsapp-val");
+            if (whatsappLink) whatsappLink.href = profile.whatsapp_link || `https://wa.me/${profile.whatsapp_number.replace(/\D/g, '')}`;
+            if (whatsappVal) whatsappVal.textContent = profile.whatsapp_number;
+          }
+          if (profile.linkedin_url) {
+            const linkedinLink = document.getElementById("contact-linkedin-link");
+            const linkedinVal = document.getElementById("contact-linkedin-val");
+            if (linkedinLink) linkedinLink.href = profile.linkedin_url;
+            if (linkedinVal) linkedinVal.textContent = profile.name;
+          }
+          if (profile.github_url) {
+            const githubLink = document.getElementById("contact-github-link");
+            const githubVal = document.getElementById("contact-github-val");
+            if (githubLink) githubLink.href = profile.github_url;
+            if (githubVal) githubVal.textContent = profile.github_url.split('/').pop() || 'GitHub';
+          }
+
+          // Typewriter words
+          if (profile.typewriter_roles && profile.typewriter_roles.length > 0) {
+            roleWords = profile.typewriter_roles;
+          }
+        }
+
+        // 2. Hydrate Theme Settings
+        if (theme) {
+          document.documentElement.style.setProperty('--bg-base', theme.bg_base);
+          document.documentElement.style.setProperty('--bg-surface', theme.bg_surface);
+          document.documentElement.style.setProperty('--accent', theme.accent);
+          document.documentElement.style.setProperty('--text-primary', theme.text_primary);
+          document.documentElement.style.setProperty('--text-secondary', theme.text_secondary);
+          document.documentElement.style.setProperty('--text-muted', theme.text_muted);
+          
+          const rgb = hexToRgb(theme.accent);
+          if (rgb) {
+            document.documentElement.style.setProperty('--accent-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
+            document.documentElement.style.setProperty('--accent-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.08)`);
+            document.documentElement.style.setProperty('--border-color-hover', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.25)`);
+          }
+        }
+
+        // 3. Hydrate Skills
+        if (skills && skills.length > 0) {
+          const skillsContainer = document.getElementById("skills-container");
+          if (skillsContainer) {
+            skillsContainer.innerHTML = skills.map(skill => `
+              <div class="skill-item">
+                <div class="skill-info">
+                  <div class="skill-name">${skill.name}</div>
+                  <div class="skill-percent">${skill.level}</div>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-level="${skill.percent}"></div>
+                </div>
+              </div>
+            `).join('');
+          }
+        }
+
+        // 4. Hydrate Toolkit
+        if (toolkit && toolkit.length > 0) {
+          const toolkitContainer = document.getElementById("toolkit-container");
+          if (toolkitContainer) {
+            toolkitContainer.innerHTML = toolkit.map(tool => `
+              <span class="toolkit-item">${tool.name}</span>
+            `).join('');
+          }
+        }
+
+        // 5. Hydrate Projects
+        if (projects && projects.length > 0) {
+          const projectsContainer = document.getElementById("projects-container");
+          if (projectsContainer) {
+            projectsContainer.innerHTML = projects.map(proj => {
+              const isUpcoming = proj.status.toLowerCase() === 'upcoming';
+              const statusClass = isUpcoming ? 'upcoming' : 'active';
+              const statusText = proj.status;
+              
+              const footerHtml = proj.link ? `
+                <a href="${proj.link}" class="project-link" ${proj.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'}>
+                  ${proj.link.startsWith('#') ? 'Demo' : 'Source'} 
+                  <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                </a>
+              ` : `<span style="font-size: 0.8rem; color: var(--text-muted);">In Development</span>`;
+
+              const tagsHtml = (proj.tags || []).map(tag => `<span class="project-tag">${tag}</span>`).join('');
+
+              return `
+                <article class="project-card reveal">
+                  <div class="project-status ${statusClass}">
+                    <div class="project-status-dot"></div>
+                    ${statusText}
+                  </div>
+                  <h3 class="project-title">${proj.title}</h3>
+                  <p class="project-desc">${proj.description}</p>
+                  <div class="project-tags">
+                    ${tagsHtml}
+                  </div>
+                  <div class="project-footer">
+                    ${footerHtml}
+                  </div>
+                </article>
+              `;
+            }).join('');
+          }
+        }
+
+        // 6. Hydrate Services
+        if (services && services.length > 0) {
+          const servicesContainer = document.getElementById("services-container");
+          if (servicesContainer) {
+            servicesContainer.innerHTML = services.map(serv => {
+              const featuresHtml = (serv.features || []).map(f => `
+                <li class="service-feature-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  ${f}
+                </li>
+              `).join('');
+
+              return `
+                <article class="service-card reveal">
+                  <span class="service-pricing-badge">${serv.badge}</span>
+                  <h3 class="service-title">${serv.title}</h3>
+                  <p class="service-desc">${serv.description}</p>
+                  <ul class="service-features">
+                    ${featuresHtml}
+                  </ul>
+                </article>
+              `;
+            }).join('');
+          }
+        }
+
+        // 7. Hydrate Timeline
+        if (timeline && timeline.length > 0) {
+          const timelineContainer = document.getElementById("timeline-container");
+          if (timelineContainer) {
+            timelineContainer.innerHTML = timeline.map(item => `
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">${item.date_range}</div>
+                <h4 class="timeline-role">${item.role}</h4>
+                <div class="timeline-org">${item.org}</div>
+                <p class="timeline-desc">${item.description}</p>
+              </div>
+            `).join('');
+          }
+        }
+
+      } catch (err) {
+        console.error("Failed to fetch Supabase content: ", err);
+      } finally {
+        initSkillObserver();
+        initScrollReveal();
+        initTilt();
+      }
+    }
+
+    /* ==========================================
        1. TYPEWRITER EFFECT
        ========================================== */
-    const roleWords = [
+    let roleWords = [
       "Bachelor of AI and Data Science Student.",
       "Web Dev Freelancer.",
       "Data Analytics Specialist."
@@ -2153,7 +2408,8 @@
     const typingTarget = document.getElementById("typing-target");
 
     function typeEffect() {
-      const currentWord = roleWords[wordIndex];
+      if (!roleWords.length) return;
+      const currentWord = roleWords[wordIndex % roleWords.length];
       if (isDeleting) {
         typingTarget.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
@@ -2177,6 +2433,7 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
+      initSupabase();
       setTimeout(typeEffect, 800);
     });
 
@@ -2260,8 +2517,6 @@
     /* ==========================================
        5. SCROLL REVEAL (INTERSECTION OBSERVER)
        ========================================== */
-    const reveals = document.querySelectorAll(".reveal");
-
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2273,15 +2528,16 @@
       threshold: 0.05
     });
 
-    reveals.forEach(rev => {
-      revealObserver.observe(rev);
-    });
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll(".reveal");
+      reveals.forEach(rev => {
+        revealObserver.observe(rev);
+      });
+    }
 
     /* ==========================================
        6. SKILLS FILL (INTERSECTION OBSERVER)
        ========================================== */
-    const skillBars = document.querySelectorAll(".skill-bar-fill");
-
     const skillObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2294,9 +2550,12 @@
       threshold: 0.1
     });
 
-    skillBars.forEach(bar => {
-      skillObserver.observe(bar);
-    });
+    function initSkillObserver() {
+      const skillBars = document.querySelectorAll(".skill-bar-fill");
+      skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+      });
+    }
 
     /* ==========================================
        7. SUBTLE HERO DUST CANVAS
@@ -2304,11 +2563,13 @@
     const canvas = document.getElementById("hero-canvas");
     const ctx = canvas.getContext("2d");
     let particles = [];
-    let particleCount = 25; // Highly minimal density
+    let particleCount = 25;
 
     function resizeCanvas() {
-      canvas.width = canvas.parentElement.offsetWidth;
-      canvas.height = canvas.parentElement.offsetHeight;
+      if (canvas) {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
     }
     
     window.addEventListener("resize", () => {
@@ -2318,8 +2579,8 @@
 
     class Particle {
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas ? canvas.width : 500);
+        this.y = Math.random() * (canvas ? canvas.height : 500);
         this.size = Math.random() * 1.5 + 0.5;
         this.speedX = Math.random() * 0.2 - 0.1;
         this.speedY = Math.random() * 0.2 - 0.1;
@@ -2330,13 +2591,16 @@
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        if (canvas) {
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.y > canvas.height) this.y = 0;
+        }
       }
 
       draw() {
+        if (!ctx) return;
         ctx.save();
         ctx.globalAlpha = this.alpha;
         ctx.beginPath();
@@ -2360,6 +2624,7 @@
     }
 
     function animateParticles() {
+      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => {
         p.update();
@@ -2372,35 +2637,35 @@
     initParticles();
     animateParticles();
 
-
-
     /* ==========================================
        9. 3D INTERACTIVE TILT FOR CARDS
        ========================================== */
-    const interactiveCards = document.querySelectorAll(".project-card, .service-card, .process-card");
-    
-    // Perform only on desktop screens
-    if (window.innerWidth > 768) {
-      interactiveCards.forEach(card => {
-        card.addEventListener("mousemove", (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
+    function initTilt() {
+      if (window.innerWidth > 768) {
+        const interactiveCards = document.querySelectorAll(".project-card, .service-card, .process-card");
+        interactiveCards.forEach(card => {
+          if (card.dataset.tiltInitialized) return;
+          card.dataset.tiltInitialized = "true";
           
-          const xc = rect.width / 2;
-          const yc = rect.height / 2;
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            
+            const angleX = (yc - y) / 12;
+            const angleY = (x - xc) / 12;
+            
+            card.style.transform = `perspective(800px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-6px)`;
+          });
           
-          // Calculate angle proportional to distance from center (max tilt 10 degrees)
-          const angleX = (yc - y) / 12;
-          const angleY = (x - xc) / 12;
-          
-          card.style.transform = `perspective(800px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-6px)`;
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+          });
         });
-        
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
-        });
-      });
+      }
     }
 
     /* ==========================================
@@ -2412,10 +2677,13 @@
     const fields = ["name", "email", "message"];
     fields.forEach(field => {
       const input = document.getElementById(`form-${field}`);
-      input.addEventListener("input", () => {
-        document.getElementById(`${field}-error`).style.display = "none";
-        input.style.borderColor = "var(--border-color)";
-      });
+      if (input) {
+        input.addEventListener("input", () => {
+          const errEl = document.getElementById(`${field}-error`);
+          if (errEl) errEl.style.display = "none";
+          input.style.borderColor = "var(--border-color)";
+        });
+      }
     });
 
     function handleFormSubmit(e) {
@@ -2424,7 +2692,8 @@
       
       const nameInput = document.getElementById("form-name");
       if (nameInput.value.trim() === "") {
-        document.getElementById("name-error").style.display = "block";
+        const nameErr = document.getElementById("name-error");
+        if (nameErr) nameErr.style.display = "block";
         nameInput.style.borderColor = "#ff3355";
         isValid = false;
       }
@@ -2432,14 +2701,16 @@
       const emailInput = document.getElementById("form-email");
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput.value.trim())) {
-        document.getElementById("email-error").style.display = "block";
+        const emailErr = document.getElementById("email-error");
+        if (emailErr) emailErr.style.display = "block";
         emailInput.style.borderColor = "#ff3355";
         isValid = false;
       }
 
       const messageInput = document.getElementById("form-message");
       if (messageInput.value.trim() === "") {
-        document.getElementById("message-error").style.display = "block";
+        const msgErr = document.getElementById("message-error");
+        if (msgErr) msgErr.style.display = "block";
         messageInput.style.borderColor = "#ff3355";
         isValid = false;
       }
@@ -2463,7 +2734,8 @@ Message:
 ${messageVal}`;
 
       const encodedText = encodeURIComponent(whatsappText);
-      const whatsappUrl = `https://wa.me/9779703022143?text=${encodedText}`;
+      const cleanNum = (window.whatsappNumber || "9779703022143").replace(/\D/g, '');
+      const whatsappUrl = `https://wa.me/${cleanNum}?text=${encodedText}`;
 
       // Open in a new tab immediately (avoids browser popup blocker)
       const newWindow = window.open(whatsappUrl, "_blank");
